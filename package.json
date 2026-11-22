@@ -4,15 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "vite",
     "test": "playwright test",
-    "test:watch": "playwright test --ui"
+    "test-local": "cross-env TEST_ENV=local playwright test",
+    "test:watch": "playwright test --ui",
+    "test:watch-local": "cross-env TEST_ENV=local playwright test --ui",
+    "test:qa": "cross-env TEST_ENV=qa playwright test",
+    "test:watch-qa": "cross-env TEST_ENV=qa playwright test --ui",
+    "test:production": "cross-env TEST_ENV=production playwright test",
+    "test:watch-production": "cross-env TEST_ENV=production playwright test --ui"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.65.0",
-    "@types/node": "^26.6.6"
+    "@types/node": "^26.6.6",
+    "cross-env": "^10.1.0"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.10"
   }
 }
